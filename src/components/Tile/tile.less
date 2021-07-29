@@ -1,0 +1,100 @@
+@import "../../styles/index.less";
+
+.tile {
+  position: absolute;
+  width: @pixel-size * 12.5;
+  height: @pixel-size * 12.5;
+  margin: @pixel-size * 1;
+  border-radius: @pixel-size * 0.5;
+  background-color: #eee4da;
+  color: #776e65;
+  font-weight: bold;
+  text-align: center;
+  font-size: @pixel-size * 6;
+  line-height: 2.1;
+  transition-property: left, top, transform;
+  transition-duration: 250ms, 250ms, 100ms;
+  transform: scale(1);
+
+  /* -=-=-=- START OF TEXT SIZE -=-=-=- */
+  &-128,
+  &-256,
+  &-512 {
+    font-size: @pixel-size * 5.5;
+    line-height: 2.28;
+  }
+
+  &-1024,
+  &-2048 {
+    font-size: @pixel-size * 4;
+    line-height: 3.18;
+  }
+  /* -=-=-=-= END OF TEXT SIZE =-=-=-=- */
+
+  &-2 {
+    background: #eee4da;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0),
+      inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+
+  &-4 {
+    background: #ede0c8;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0),
+      inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+
+  &-8 {
+    color: #f9f6f2;
+    background: #f2b179;
+  }
+
+  &-16 {
+    color: #f9f6f2;
+    background: #f59563;
+  }
+
+  &-32 {
+    color: #f9f6f2;
+    background: #f67c5f;
+  }
+
+  &-64 {
+    color: #f9f6f2;
+    background: #f65e3b;
+  }
+
+  &-128 {
+    color: #f9f6f2;
+    background: #edcf72;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+  }
+
+  &-256 {
+    color: #f9f6f2;
+    background: #edcc61;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+  }
+
+  &-512 {
+    color: #f9f6f2;
+    background: #edc850;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+  }
+
+  &-1024 {
+    color: #f9f6f2;
+    background: #edc53f;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+  }
+
+  &-2048 {
+    color: #f9f6f2;
+    background: #edc22e;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+  }
+}
