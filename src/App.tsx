@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Board } from "./components/Board";
 import { Button } from "./components/Button";
+import { Game } from "./components/Game";
+
 import "./App.less";
 
 /* eslint-disable react/jsx-no-target-blank */
@@ -21,7 +22,7 @@ export const App = () => {
           <Button onClick={handleRestart}>Restart</Button>
         </div>
       </div>
-      <Board key={date.toISOString()} />
+      <Game key={date.toISOString()} />
       <div>
         <p>
           <b>Wondering how was that built?</b> You can find a video tutorial and

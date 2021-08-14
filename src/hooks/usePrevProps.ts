@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * `usePrevProps` allows to store previous value of the tracked props.
+ * `usePrevProps` stores the previous value of the prop.
  *
  * @link https://blog.logrocket.com/how-to-get-previous-props-state-with-react-hooks/
  * @param {K} value

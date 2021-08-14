@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import invariant from "tiny-invariant";
 import { usePrevProps } from "../../hooks/usePrevProps";
-import { useTileContainer } from "../../hooks/useTileContainer";
-import { size } from "../../models/Board";
+import { useBoard } from "../Board";
 import "./tile.less";
 
 type Props = {
@@ -12,14 +11,15 @@ type Props = {
 };
 
 export const Tile = ({ value, position, zIndex }: Props) => {
-  const withinBoardBoundaries = position[0] < size && position[1] < size;
-  invariant(withinBoardBoundaries, "Tile out of bound");
-
+  const [containerWidth, tileCount] = useBoard();
   const [scale, setScale] = useState(1);
 
-  const [boardLength] = useTileContainer();
   const prevValue = usePrevProps<number>(value);
   const prevCoords = usePrevProps<[number, number]>(position);
+
+  const withinBoardBoundaries =
+    position[0] < tileCount && position[1] < tileCount;
+  invariant(withinBoardBoundaries, "Tile out of bound");
 
   const isNew = prevCoords === undefined;
   const hasChanged = prevValue !== value;
@@ -33,7 +33,7 @@ export const Tile = ({ value, position, zIndex }: Props) => {
   }, [shallAnimate, scale]);
 
   const positionToPixels = (position: number) => {
-    return (position / size) * (boardLength as number);
+    return (position / tileCount) * (containerWidth as number);
   };
 
   const style = {
