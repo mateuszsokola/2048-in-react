@@ -33,7 +33,7 @@ export const App = () => {
               href="https://www.youtube.com/channel/UCJV16_5c4A0amyBZSI4yP6A"
               target="_blank"
             >
-              YouTube
+              Tutorial (YouTube)
             </a>
           </li>
           <li>
@@ -42,6 +42,14 @@ export const App = () => {
               target="_blank"
             >
               Source code (Github)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://mateuszsokola.github.io/2048-animation-examples/"
+              target="_blank"
+            >
+              Animation Examples (Github Pages)
             </a>
           </li>
         </ul>
