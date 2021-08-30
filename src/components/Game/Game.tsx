@@ -8,6 +8,9 @@ export const Game = () => {
   const [tiles, moveLeft, moveRight, moveUp, moveDown] = useGame();
 
   const handleKeyDown = (e: KeyboardEvent) => {
+    // disables page scrolling with keyboard arrows
+    e.preventDefault();
+
     switch (e.code) {
       case "ArrowLeft":
         moveLeft();
