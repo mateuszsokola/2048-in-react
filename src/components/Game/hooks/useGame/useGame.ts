@@ -90,12 +90,14 @@ export const useGame = () => {
     return [x, y];
   };
 
-  type RetrieveTileIdsByRowOrColumnCallback = (rowOrColumnIndex: number) => number[];
+  type RetrieveTileIdsByRowOrColumnCallback = (
+    rowOrColumnIndex: number
+  ) => number[];
 
   type CalculateTileIndex = (
     tileIndex: number,
     tileInRowIndex: number,
-    mergedCount: number,
+    howManyMerges: number,
     maxIndexInRow: number
   ) => number;
 
@@ -188,10 +190,10 @@ export const useGame = () => {
     const calculateFirstFreeIndex = (
       tileIndex: number,
       tileInRowIndex: number,
-      mergedCount: number,
+      howManyMerges: number,
       _: number
     ) => {
-      return tileIndex * tileCount + tileInRowIndex - mergedCount;
+      return tileIndex * tileCount + tileInRowIndex - howManyMerges;
     };
 
     return move.bind(this, retrieveTileIdsByRow, calculateFirstFreeIndex);
@@ -215,11 +217,11 @@ export const useGame = () => {
     const calculateFirstFreeIndex = (
       tileIndex: number,
       tileInRowIndex: number,
-      mergedCount: number,
+      howManyMerges: number,
       maxIndexInRow: number
     ) => {
       return (
-        tileIndex * tileCount + maxIndexInRow + mergedCount - tileInRowIndex
+        tileIndex * tileCount + maxIndexInRow + howManyMerges - tileInRowIndex
       );
     };
 
@@ -244,10 +246,10 @@ export const useGame = () => {
     const calculateFirstFreeIndex = (
       tileIndex: number,
       tileInColumnIndex: number,
-      mergedCount: number,
+      howManyMerges: number,
       _: number
     ) => {
-      return tileIndex + tileCount * (tileInColumnIndex - mergedCount);
+      return tileIndex + tileCount * (tileInColumnIndex - howManyMerges);
     };
 
     return move.bind(this, retrieveTileIdsByColumn, calculateFirstFreeIndex);
@@ -271,12 +273,12 @@ export const useGame = () => {
     const calculateFirstFreeIndex = (
       tileIndex: number,
       tileInColumnIndex: number,
-      mergedCount: number,
+      howManyMerges: number,
       maxIndexInColumn: number
     ) => {
       return (
         tileIndex +
-        tileCount * (maxIndexInColumn - tileInColumnIndex + mergedCount)
+        tileCount * (maxIndexInColumn - tileInColumnIndex + howManyMerges)
       );
     };
 
