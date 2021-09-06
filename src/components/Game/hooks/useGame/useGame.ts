@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useReducer, useRef } from "react";
-import { animationDuration, tileCount } from "../../../Board";
+import {
+  animationDuration,
+  tileCount as tileCountPerRowOrColumn,
+} from "../../../Board";
 import { TileMeta } from "../../../Tile";
 import { useIds } from "../useIds";
 import { GameReducer, initialState } from "./reducer";
@@ -44,7 +47,9 @@ export const useGame = () => {
   };
 
   const retrieveTileMap = useCallback(() => {
-    const tileMap = new Array(tileCount * tileCount).fill(0) as number[];
+    const tileMap = new Array(
+      tileCountPerRowOrColumn * tileCountPerRowOrColumn
+    ).fill(0) as number[];
 
     byIds.forEach((id) => {
       const { position } = tiles[id];
@@ -81,18 +86,16 @@ export const useGame = () => {
   }, [findEmptyTiles, createTile]);
 
   const positionToIndex = (position: [number, number]) => {
-    return position[1] * tileCount + position[0];
+    return position[1] * tileCountPerRowOrColumn + position[0];
   };
 
   const indexToPosition = (index: number) => {
-    const x = index % tileCount;
-    const y = Math.floor(index / tileCount);
+    const x = index % tileCountPerRowOrColumn;
+    const y = Math.floor(index / tileCountPerRowOrColumn);
     return [x, y];
   };
 
-  type RetrieveTileIdsByRowOrColumnCallback = (
-    rowOrColumnIndex: number
-  ) => number[];
+  type RetrieveTileIdsPerRowOrColumn = (rowOrColumnIndex: number) => number[];
 
   type CalculateTileIndex = (
     tileIndex: number,
@@ -102,18 +105,22 @@ export const useGame = () => {
   ) => number;
 
   const move = (
-    retrieveTileIdsByRowOrColumn: RetrieveTileIdsByRowOrColumnCallback,
+    retrieveTileIdsPerRowOrColumn: RetrieveTileIdsPerRowOrColumn,
     calculateFirstFreeIndex: CalculateTileIndex
   ) => {
     // new tiles cannot be created during motion.
     dispatch({ type: "START_MOVE" });
 
-    const maxIndex = tileCount - 1;
+    const maxIndex = tileCountPerRowOrColumn - 1;
 
     // iterates through every row or column (depends on move kind - vertical or horizontal).
-    for (let tileIndex = 0; tileIndex < tileCount; tileIndex += 1) {
+    for (
+      let rowOrColumnIndex = 0;
+      rowOrColumnIndex < tileCountPerRowOrColumn;
+      rowOrColumnIndex += 1
+    ) {
       // retrieves tiles in the row or column.
-      const availableTileIds = retrieveTileIdsByRowOrColumn(tileIndex);
+      const availableTileIds = retrieveTileIdsPerRowOrColumn(rowOrColumnIndex);
 
       // previousTile is used to determine if tile can be merged with the current tile.
       let previousTile: TileMeta | undefined;
@@ -150,7 +157,7 @@ export const useGame = () => {
           ...currentTile,
           position: indexToPosition(
             calculateFirstFreeIndex(
-              tileIndex,
+              rowOrColumnIndex,
               nonEmptyTileIndex,
               mergedTilesCount,
               maxIndex
@@ -177,10 +184,10 @@ export const useGame = () => {
       const tileMap = retrieveTileMap();
 
       const tileIdsInRow = [
-        tileMap[rowIndex * tileCount + 0],
-        tileMap[rowIndex * tileCount + 1],
-        tileMap[rowIndex * tileCount + 2],
-        tileMap[rowIndex * tileCount + 3],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 0],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 1],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 2],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 3],
       ];
 
       const nonEmptyTiles = tileIdsInRow.filter((id) => id !== 0);
@@ -193,7 +200,9 @@ export const useGame = () => {
       howManyMerges: number,
       _: number
     ) => {
-      return tileIndex * tileCount + tileInRowIndex - howManyMerges;
+      return (
+        tileIndex * tileCountPerRowOrColumn + tileInRowIndex - howManyMerges
+      );
     };
 
     return move.bind(this, retrieveTileIdsByRow, calculateFirstFreeIndex);
@@ -204,10 +213,10 @@ export const useGame = () => {
       const tileMap = retrieveTileMap();
 
       const tileIdsInRow = [
-        tileMap[rowIndex * tileCount + 0],
-        tileMap[rowIndex * tileCount + 1],
-        tileMap[rowIndex * tileCount + 2],
-        tileMap[rowIndex * tileCount + 3],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 0],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 1],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 2],
+        tileMap[rowIndex * tileCountPerRowOrColumn + 3],
       ];
 
       const nonEmptyTiles = tileIdsInRow.filter((id) => id !== 0);
@@ -221,7 +230,10 @@ export const useGame = () => {
       maxIndexInRow: number
     ) => {
       return (
-        tileIndex * tileCount + maxIndexInRow + howManyMerges - tileInRowIndex
+        tileIndex * tileCountPerRowOrColumn +
+        maxIndexInRow +
+        howManyMerges -
+        tileInRowIndex
       );
     };
 
@@ -233,10 +245,10 @@ export const useGame = () => {
       const tileMap = retrieveTileMap();
 
       const tileIdsInColumn = [
-        tileMap[columnIndex + tileCount * 0],
-        tileMap[columnIndex + tileCount * 1],
-        tileMap[columnIndex + tileCount * 2],
-        tileMap[columnIndex + tileCount * 3],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 0],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 1],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 2],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 3],
       ];
 
       const nonEmptyTiles = tileIdsInColumn.filter((id) => id !== 0);
@@ -249,7 +261,10 @@ export const useGame = () => {
       howManyMerges: number,
       _: number
     ) => {
-      return tileIndex + tileCount * (tileInColumnIndex - howManyMerges);
+      return (
+        tileIndex +
+        tileCountPerRowOrColumn * (tileInColumnIndex - howManyMerges)
+      );
     };
 
     return move.bind(this, retrieveTileIdsByColumn, calculateFirstFreeIndex);
@@ -260,10 +275,10 @@ export const useGame = () => {
       const tileMap = retrieveTileMap();
 
       const tileIdsInColumn = [
-        tileMap[columnIndex + tileCount * 0],
-        tileMap[columnIndex + tileCount * 1],
-        tileMap[columnIndex + tileCount * 2],
-        tileMap[columnIndex + tileCount * 3],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 0],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 1],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 2],
+        tileMap[columnIndex + tileCountPerRowOrColumn * 3],
       ];
 
       const nonEmptyTiles = tileIdsInColumn.filter((id) => id !== 0);
@@ -278,7 +293,8 @@ export const useGame = () => {
     ) => {
       return (
         tileIndex +
-        tileCount * (maxIndexInColumn - tileInColumnIndex + howManyMerges)
+        tileCountPerRowOrColumn *
+          (maxIndexInColumn - tileInColumnIndex + howManyMerges)
       );
     };
 
