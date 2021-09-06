@@ -30,11 +30,8 @@ export const App = () => {
         </p>
         <ul>
           <li>
-            <a
-              href="https://www.youtube.com/channel/UCJV16_5c4A0amyBZSI4yP6A"
-              target="_blank"
-            >
-              Tutorial (YouTube)
+            <a href="https://youtu.be/vI0QArPnkUc" target="_blank">
+              Tutorial (YouTube video)
             </a>
           </li>
           <li>
@@ -42,7 +39,7 @@ export const App = () => {
               href="https://github.com/mateuszsokola/2048-in-react/"
               target="_blank"
             >
-              Source code (Github)
+              Source Code (Github)
             </a>
           </li>
           <li>
