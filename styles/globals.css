@@ -3,9 +3,11 @@
 
   /* Backgrounds */
   --primary-background: #faf8ef;
-  --secodary-background: #bbada0;
+  --secondary-background: #bbada0;
   --cell-background: #cac1b5;
+  --tile-background: #eee4da;
 
+  /* Colors */
   --primary-text-color: #776e65;
 }
 
