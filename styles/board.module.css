@@ -5,8 +5,8 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
-  background: var(--secodary-background);
-  border: var(--pixel-size) solid var(--secodary-background);
+  background: var(--secondary-background);
+  border: var(--pixel-size) solid var(--secondary-background);
   border-radius: calc(var(--pixel-size) * 0.75);
 }
 
@@ -16,4 +16,14 @@
   margin: calc(var(--pixel-size) * 0.5);
   border-radius: calc(var(--pixel-size) * 0.5);
   background: var(--cell-background);
+}
+
+.tiles {
+  position: absolute;
+  z-index: 2;
+  margin: calc(var(--pixel-size) * 1);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }

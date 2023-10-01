@@ -1,0 +1,13 @@
+.tile {
+  position: absolute;
+  width: calc(var(--pixel-size) * 8);
+  height: calc(var(--pixel-size) * 8);
+  margin: calc(var(--pixel-size) * 0.5);
+  border-radius: calc(var(--pixel-size) * 0.5);
+  background: var(--tile-background);
+  color: var(--primary-text-color);
+  font-size: calc(var(--pixel-size) * 4);
+  line-height: calc(var(--pixel-size) * 8);
+  font-weight: bold;
+  text-align: center;
+}
