@@ -2,7 +2,7 @@ import { Tile } from "@/models/tile";
 import { uid } from "uid";
 
 type State = { board: string[][]; tiles: { [id: string]: Tile } };
-type Action = { type: 'create_tile', tile: Tile};
+type Action = { type: "create_tile"; tile: Tile };
 
 function createBoard(tileCountPerDimension: number = 4) {
   const board: string[][] = [];
@@ -16,9 +16,12 @@ function createBoard(tileCountPerDimension: number = 4) {
 
 export const initialState: State = { board: createBoard(), tiles: {} };
 
-export default function gameReducer(state: State = initialState, action: Action) {
+export default function gameReducer(
+  state: State = initialState,
+  action: Action,
+) {
   switch (action.type) {
-    case 'create_tile': {
+    case "create_tile": {
       const tileId = uid();
       const [x, y] = action.tile.position;
       const newBoard = JSON.parse(JSON.stringify(state.board));
@@ -34,6 +37,6 @@ export default function gameReducer(state: State = initialState, action: Action)
       };
     }
     default:
-      return state
+      return state;
   }
 }
