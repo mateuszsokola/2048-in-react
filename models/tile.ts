@@ -3,3 +3,5 @@ export type Tile = {
   position: [number, number];
   value: number;
 };
+
+export type TileMap = { [id: string]: Tile };
