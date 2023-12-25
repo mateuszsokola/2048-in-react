@@ -1,13 +1,13 @@
 .board {
   position: relative;
-  width: calc(var(--pixel-size) * 8 * 4 + var(--pixel-size) * 6);
+  width: calc(var(--pixel-size) * 8 * 4 + var(--pixel-size) * 5);
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   background: var(--secondary-background);
-  border: var(--pixel-size) solid var(--secondary-background);
+  border: calc(var(--pixel-size) * 0.5) solid var(--secondary-background);
   border-radius: calc(var(--pixel-size) * 0.75);
 }
 
@@ -22,7 +22,7 @@
 .tiles {
   position: absolute;
   z-index: 2;
-  margin: calc(var(--pixel-size) * 1);
+  margin: calc(var(--pixel-size) * 0.5);
   left: 0;
   top: 0;
   right: 0;

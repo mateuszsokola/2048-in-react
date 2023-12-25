@@ -31,3 +31,9 @@ body {
   font-size: calc(var(--pixel-size) * 2.25);
   line-height: calc(var(--pixel-size) * 3.5);
 }
+
+h1 {
+  font-size: calc(var(--pixel-size) * 5);
+  line-height: calc(var(--pixel-size) * 5);
+  margin: calc(var(--pixel-size) * 1.5) calc(var(--pixel-size) * 0);
+}

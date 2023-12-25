@@ -1,0 +1,22 @@
+.twenty48 {
+  margin: calc(var(--pixel-size) * 0) auto;
+  padding: calc(var(--pixel-size) * 1);
+  width: 100%;
+  max-width: calc(var(--pixel-size) * 37);
+}
+
+.twenty48 > header {
+  display: flex;
+  align-items: center;
+  margin: calc(var(--pixel-size) * 1) calc(var(--pixel-size) * 0);
+}
+
+.twenty48 > header > * {
+  flex: 1;
+}
+
+.twenty48 > footer {
+  margin: calc(var(--pixel-size) * 3) calc(var(--pixel-size) * 0);
+  font-weight: 600;
+  text-align: center;
+}
