@@ -16,7 +16,7 @@ describe("Tile", () => {
 
     const tile: HTMLDivElement = container.firstChild as HTMLDivElement;
     expect(tile.textContent).toEqual("2048");
-    expect(tile.className).toEqual("tile");
+    expect(tile.className).toEqual("tile tile2048");
     expect(tile).toHaveStyle({
       left: `72px`,
       top: `144px`,
