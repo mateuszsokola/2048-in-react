@@ -4,18 +4,17 @@ import {
   mergeAnimationDuration,
   tileCountPerDimension,
 } from "@/constants";
-import usePreviousProps from "@/hooks/use-previous-props";
 import { Tile as TileProps } from "@/models/tile";
 import styles from "@/styles/tile.module.css";
+import usePreviousProps from "@/hooks/use-previous-props";
 
 export default function Tile({ position, value }: TileProps) {
   const [scale, setScale] = useState(1);
   const previousValue = usePreviousProps<number>(value);
   const hasChanged = previousValue !== value;
 
-  const positionToPixels = (position: number) => {
-    return (position / tileCountPerDimension) * containerWidth;
-  };
+  const positionToPixels = (position: number) =>
+    (position / tileCountPerDimension) * containerWidth;
 
   useEffect(() => {
     if (hasChanged) {
@@ -32,7 +31,7 @@ export default function Tile({ position, value }: TileProps) {
   };
 
   return (
-    <div className={styles.tile} style={style}>
+    <div className={`${styles.tile} ${styles[`tile${value}`]}`} style={style}>
       {value}
     </div>
   );

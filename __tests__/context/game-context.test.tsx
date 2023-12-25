@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
+import GameProvider from "@/context/game-context";
 import Board from "@/components/board";
 import Score from "@/components/score";
-import GameProvider from "@/context/game-context";
 
 describe("GameProvider", () => {
   describe("startGame", () => {
@@ -25,6 +25,27 @@ describe("GameProvider", () => {
       );
 
       expect(container.querySelectorAll(".tile")).toHaveLength(2);
+    });
+  });
+
+  describe("moveTiles", () => {
+    it("should move tiles and merge them together", () => {
+      const { container } = render(
+        <GameProvider>
+          <Board />
+        </GameProvider>,
+      );
+
+      expect(container.querySelectorAll(".tile4")).toHaveLength(0);
+      expect(container.querySelectorAll(".tile2")).toHaveLength(2);
+
+      fireEvent.keyDown(container, {
+        key: "ArrowUp",
+        code: "ArrowUp",
+      });
+
+      expect(container.querySelectorAll(".tile4")).toHaveLength(1);
+      expect(container.querySelectorAll(".tile2")).toHaveLength(1);
     });
   });
 
