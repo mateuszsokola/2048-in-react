@@ -31,6 +31,10 @@ Just start dev server on [localhost](http://localhost:3000):
 
 All contributions are welcome!
 
+## Author
+
+- Mateusz Sokola ([@msokola](https://twitter.com/msokola))
+
 [lint-badge]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/lint.yml/badge.svg
 [lint-url]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/actions/workflows/lint.yml
 [test-badge]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/test.yml/badge.svg
