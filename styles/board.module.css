@@ -1,4 +1,5 @@
 .board {
+  position: relative;
   width: calc(var(--pixel-size) * 8 * 4 + var(--pixel-size) * 6);
 }
 
