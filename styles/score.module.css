@@ -14,3 +14,15 @@
   font-size: calc(var(--pixel-size) * 2.5);
   color: var(--secondary-text-color);
 }
+
+@media (min-width: 512px) {
+  .score {
+    border: calc(var(--pixel-size) * 1) solid var(--secondary-background);
+    font-size: calc(var(--pixel-size) * 2);
+    line-height: calc(var(--pixel-size) * 3.5);
+  }
+
+  .score > div {
+    font-size: calc(var(--pixel-size) * 3.5);
+  }
+}

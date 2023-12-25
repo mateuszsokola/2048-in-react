@@ -1,7 +1,15 @@
+/**
+ * Game Layout
+ */
+export const containerWidthMobile = 288; // px
+
+export const containerWidthDesktop = 464; // px
+
 export const tileCountPerDimension = 4;
 
-export const containerWidth = 288; // pixels
-
+/**
+ * Animations
+ */
 export const mergeAnimationDuration = 100; // ms
 
 export const moveAnimationDuration = 200; // ms

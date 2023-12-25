@@ -28,3 +28,23 @@
   right: 0;
   bottom: 0;
 }
+
+@media (min-width: 512px) {
+  .board {
+    width: calc(var(--pixel-size) * 12.5 * 4 + var(--pixel-size) * 10);
+  }
+
+  .grid {
+    border: calc(var(--pixel-size) * 1) solid var(--secondary-background);
+  }
+
+  .cell {
+    width: calc(var(--pixel-size) * 12.5);
+    height: calc(var(--pixel-size) * 12.5);
+    margin: calc(var(--pixel-size) * 1);
+  }
+
+  .tiles {
+    margin: calc(var(--pixel-size) * 1);
+  }
+}
