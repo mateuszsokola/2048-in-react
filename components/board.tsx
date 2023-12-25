@@ -1,8 +1,9 @@
 import { useCallback, useContext, useEffect, useRef } from "react";
-import { GameContext } from "@/context/game-context";
-import Tile from "@/components/tile";
 import { Tile as TileModel } from "@/models/tile";
 import styles from "@/styles/board.module.css";
+import Tile from "./tile";
+import { GameContext } from "@/context/game-context";
+import MobileSwiper, { SwipeInput } from "./mobile-swiper";
 
 export default function Board() {
   const { getTiles, moveTiles, startGame } = useContext(GameContext);
@@ -26,6 +27,25 @@ export default function Board() {
         case "ArrowRight":
           moveTiles("move_right");
           break;
+      }
+    },
+    [moveTiles],
+  );
+
+  const handleSwipe = useCallback(
+    ({ deltaX, deltaY }: SwipeInput) => {
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > 0) {
+          moveTiles("move_right");
+        } else {
+          moveTiles("move_left");
+        }
+      } else {
+        if (deltaY > 0) {
+          moveTiles("move_down");
+        } else {
+          moveTiles("move_up");
+        }
       }
     },
     [moveTiles],
@@ -64,9 +84,11 @@ export default function Board() {
   }, [handleKeyDown]);
 
   return (
-    <div className={styles.board}>
-      <div className={styles.tiles}>{renderTiles()}</div>
-      <div className={styles.grid}>{renderGrid()}</div>
-    </div>
+    <MobileSwiper onSwipe={handleSwipe}>
+      <div className={styles.board}>
+        <div className={styles.tiles}>{renderTiles()}</div>
+        <div className={styles.grid}>{renderGrid()}</div>
+      </div>
+    </MobileSwiper>
   );
 }
