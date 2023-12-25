@@ -1,12 +1,12 @@
-name: 'setup_node-cache_dep-install_dep'
-description: 'Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧'
+name: "setup_node-cache_dep-install_dep"
+description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Setup Node.js ⚙️
       uses: actions/setup-node@v4
       with:
-        node-version-file: '.nvmrc'
+        node-version-file: ".nvmrc"
 
     - name: Cache dependencies ⚡
       id: cache_dependencies

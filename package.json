@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "check-code": "prettier --check .",
     "format": "prettier --write .",
     "test": "jest --watch"
   },
