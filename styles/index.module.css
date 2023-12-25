@@ -5,6 +5,12 @@
   max-width: calc(var(--pixel-size) * 37);
 }
 
+@media (min-width: 512px) {
+  .twenty48 {
+    max-width: calc(var(--pixel-size) * 60);
+  }
+}
+
 .twenty48 > header {
   display: flex;
   align-items: center;
