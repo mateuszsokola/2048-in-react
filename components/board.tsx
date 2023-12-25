@@ -1,31 +1,35 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useCallback, useContext, useEffect, useRef } from "react";
+import { GameContext } from "@/context/game-context";
 import Tile from "@/components/tile";
 import { Tile as TileModel } from "@/models/tile";
-import gameReducer, { initialState } from "@/reducers/game-reducer";
 import styles from "@/styles/board.module.css";
 
 export default function Board() {
-  const [gameState, dispatch] = useReducer(gameReducer, initialState);
+  const { getTiles, moveTiles, startGame } = useContext(GameContext);
   const initialized = useRef(false);
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    e.preventDefault();
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      // disables page scrolling with keyboard arrows
+      e.preventDefault();
 
-    switch (e.code) {
-      case "ArrowUp":
-        dispatch({ type: "move_up" });
-        break;
-      case "ArrowDown":
-        dispatch({ type: "move_down" });
-        break;
-      case "ArrowLeft":
-        dispatch({ type: "move_left" });
-        break;
-      case "ArrowRight":
-        dispatch({ type: "move_right" });
-        break;
-    }
-  };
+      switch (e.code) {
+        case "ArrowUp":
+          moveTiles("move_up");
+          break;
+        case "ArrowDown":
+          moveTiles("move_down");
+          break;
+        case "ArrowLeft":
+          moveTiles("move_left");
+          break;
+        case "ArrowRight":
+          moveTiles("move_right");
+          break;
+      }
+    },
+    [moveTiles],
+  );
 
   const renderGrid = () => {
     const cells: JSX.Element[] = [];
@@ -39,20 +43,17 @@ export default function Board() {
   };
 
   const renderTiles = () => {
-    return Object.values(gameState.tiles).map(
-      (tile: TileModel, index: number) => {
-        return <Tile key={`${index}`} {...tile} />;
-      },
-    );
+    return getTiles().map((tile: TileModel) => (
+      <Tile key={`${tile.id}`} {...tile} />
+    ));
   };
 
   useEffect(() => {
     if (initialized.current === false) {
-      dispatch({ type: "create_tile", tile: { position: [0, 1], value: 2 } });
-      dispatch({ type: "create_tile", tile: { position: [0, 2], value: 2 } });
+      startGame();
       initialized.current = true;
     }
-  }, []);
+  }, [startGame]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -60,7 +61,7 @@ export default function Board() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <div className={styles.board}>
