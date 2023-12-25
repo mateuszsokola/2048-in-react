@@ -1,4 +1,4 @@
-name: "setup_node-cache_dep-install_dep"
+name: setup-node
 description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
 runs:
   using: "composite"
