@@ -10,4 +10,6 @@
   line-height: calc(var(--pixel-size) * 8);
   font-weight: bold;
   text-align: center;
+  transition-property: left, top, transform;
+  transition-duration: 200ms, 200ms, 100ms;
 }
