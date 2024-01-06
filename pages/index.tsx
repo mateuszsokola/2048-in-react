@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Board from "@/components/board";
 import Score from "@/components/score";
 import styles from "@/styles/index.module.css";
@@ -29,7 +30,31 @@ export default function Home() {
       <main>
         <Board />
       </main>
-      <footer>Made with ❤️ by Matéush</footer>
+      <footer>
+        <div className={styles.socials}>
+          <a
+            href="https://github.com/mateuszsokola/2048-in-react"
+            target="_blank"
+            rel="noopener"
+          >
+            <Image
+              src="/social-github.svg"
+              alt="2048-in-react on GitHub"
+              width={32}
+              height={32}
+            />
+          </a>
+          <a href="https://twitter.com/msokola" target="_blank" rel="noopener">
+            <Image
+              src="/social-twitter.svg"
+              alt="Mateush onTwitter"
+              width={32}
+              height={32}
+            />
+          </a>
+        </div>
+        <div>Made with ❤️ by Matéush</div>
+      </footer>
     </div>
   );
 }
