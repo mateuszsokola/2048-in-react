@@ -38,7 +38,7 @@ export default function Home() {
             rel="noopener"
           >
             <Image
-              src="/social-github.svg"
+              src="social-github.svg"
               alt="2048-in-react on GitHub"
               width={32}
               height={32}
@@ -46,8 +46,8 @@ export default function Home() {
           </a>
           <a href="https://twitter.com/msokola" target="_blank" rel="noopener">
             <Image
-              src="/social-twitter.svg"
-              alt="Mateush onTwitter"
+              src="social-twitter.svg"
+              alt="Matéush on Twitter"
               width={32}
               height={32}
             />
