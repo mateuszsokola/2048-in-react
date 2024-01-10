@@ -32,10 +32,30 @@ body {
   line-height: calc(var(--pixel-size) * 3.5);
 }
 
+a {
+  color: var(--primary-text-color);
+  font-weight: bold;
+}
+
+a:hover,
+a:focus {
+  opacity: 0.8;
+}
+
 h1 {
   font-size: calc(var(--pixel-size) * 5);
   line-height: calc(var(--pixel-size) * 5);
   margin: calc(var(--pixel-size) * 1.5) calc(var(--pixel-size) * 0);
+}
+
+h2 {
+  font-size: calc(var(--pixel-size) * 2.5);
+  line-height: calc(var(--pixel-size) * 3.75);
+  margin: calc(var(--pixel-size) * 2.5) calc(var(--pixel-size) * 0);
+}
+
+h2 > span {
+  display: block;
 }
 
 @media (min-width: 512px) {
@@ -43,5 +63,9 @@ h1 {
     font-size: calc(var(--pixel-size) * 8.5);
     line-height: calc(var(--pixel-size) * 8.5);
     margin: calc(var(--pixel-size) * 2.25) calc(var(--pixel-size) * 0);
+  }
+
+  h2 > span {
+    display: inline;
   }
 }

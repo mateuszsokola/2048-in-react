@@ -30,6 +30,22 @@ export default function Home() {
       <main>
         <Board />
       </main>
+      <div>
+        <h2>
+          🚀 Unlock the Code: <span>Build Your Own 2048 Game!</span>
+        </h2>
+        <p>
+          Be one of the <i>first 100 users</i> to{" "}
+          <a
+            href="https://www.udemy.com/course/2048-in-react-and-nextjs/?couponCode=2048FREE"
+            target="_blank"
+            rel="noopener"
+          >
+            join my Udemy course
+          </a>{" "}
+          and create your 2048 masterpiece for FREE with code <b>2048FREE</b>.
+        </p>
+      </div>
       <footer>
         <div className={styles.socials}>
           <a
