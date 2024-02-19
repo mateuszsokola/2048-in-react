@@ -32,7 +32,7 @@ export default function Home() {
       </main>
       <div>
         <h2>
-          🚀 <span>Create Your Own 2048 Game!</span>
+          🚀 <span>Learn React 18 & Next.js</span>
         </h2>
         <p>
           Join my{" "}
@@ -41,10 +41,9 @@ export default function Home() {
             target="_blank"
             rel="noopener"
           >
-            Next.js course on Udemy
+            Udemy course
           </a>{" "}
-          and get 50% off with code <b>50DISCOUNT</b>. This promotion is due on
-          Friday!
+          and learn React & Next.js by creating your own 2048 game from scratch.
         </p>
       </div>
       <footer>
