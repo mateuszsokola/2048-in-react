@@ -27,13 +27,9 @@ Just start dev server on [localhost](http://localhost:3000):
 
 **Start coding!** 🎉
 
-## Contributing
+## Build your own 2048 Game! 🚀
 
-All contributions are welcome!
-
-## Author
-
-- Mateusz Sokola ([@msokola](https://twitter.com/msokola))
+[![Learn how to create 2048 Game in React](https://www.mateu.sh/udemy-freecodecamp.png)](https://www.udemy.com/course/2048-in-react-and-nextjs/?referralCode=AC3FD6336BAB9C402106)  
 
 [lint-badge]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/lint.yml/badge.svg
 [lint-url]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/actions/workflows/lint.yml
