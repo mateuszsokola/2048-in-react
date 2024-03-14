@@ -29,7 +29,7 @@ Just start dev server on [localhost](http://localhost:3000):
 
 ## Build your own 2048 Game! 🚀
 
-[![Learn how to create 2048 Game in React](https://www.mateu.sh/udemy-freecodecamp.png)](https://www.udemy.com/course/2048-in-react-and-nextjs/?referralCode=AC3FD6336BAB9C402106)  
+[![Build 2048 Game in React](https://assets.mateu.sh/assets/github-2048-in-react-readme)](https://assets.mateu.sh/r/github-2048-in-react-readme)
 
 [lint-badge]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/lint.yml/badge.svg
 [lint-url]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/actions/workflows/lint.yml
