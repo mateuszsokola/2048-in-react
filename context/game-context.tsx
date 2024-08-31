@@ -78,7 +78,7 @@ export default function GameProvider({ children }: PropsWithChildren) {
 
     if (isWon) {
       dispatch({ type: "update_status", status: "won" });
-      return
+      return;
     }
 
     const { tiles, board } = gameState;
@@ -86,16 +86,26 @@ export default function GameProvider({ children }: PropsWithChildren) {
     const maxIndex = tileCountPerDimension - 1;
     for (let x = 0; x < maxIndex; x += 1) {
       for (let y = 0; y < maxIndex; y += 1) {
-        if (isNil(gameState.board[x][y]) || isNil(gameState.board[x + 1][y]) || isNil(gameState.board[x][y + 1])) {
-          return
+        if (
+          isNil(gameState.board[x][y]) ||
+          isNil(gameState.board[x + 1][y]) ||
+          isNil(gameState.board[x][y + 1])
+        ) {
+          return;
         }
 
-        if (x < maxIndex && tiles[board[x][y]].value === tiles[board[x + 1][y]].value) {
-          return
+        if (
+          x < maxIndex &&
+          tiles[board[x][y]].value === tiles[board[x + 1][y]].value
+        ) {
+          return;
         }
 
-        if (y < maxIndex && tiles[board[x][y]].value === tiles[board[x][y + 1]].value) {
-          return
+        if (
+          y < maxIndex &&
+          tiles[board[x][y]].value === tiles[board[x][y + 1]].value
+        ) {
+          return;
         }
       }
     }
@@ -111,7 +121,6 @@ export default function GameProvider({ children }: PropsWithChildren) {
       }, mergeAnimationDuration);
     }
   }, [gameState.hasChanged]);
-
 
   useEffect(() => {
     if (!gameState.hasChanged) {

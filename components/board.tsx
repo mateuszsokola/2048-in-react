@@ -87,7 +87,7 @@ export default function Board() {
   return (
     <MobileSwiper onSwipe={handleSwipe}>
       <div className={styles.board}>
-        {status === "won" && <Splash heading="You won!" type="won"/>}
+        {status === "won" && <Splash heading="You won!" type="won" />}
         {status === "lost" && <Splash heading="You lost!" />}
         <div className={styles.tiles}>{renderTiles()}</div>
         <div className={styles.grid}>{renderGrid()}</div>
