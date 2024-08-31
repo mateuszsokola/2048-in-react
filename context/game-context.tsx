@@ -65,24 +65,10 @@ export default function GameProvider({ children }: PropsWithChildren) {
     [dispatch],
   );
 
-  // const startGame = () => {
-  //   dispatch({ type: "reset_game" });
-  //   dispatch({ type: "create_tile", tile: { position: [0, 1], value: 2 } });
-  //   dispatch({ type: "create_tile", tile: { position: [0, 2], value: 2 } });
-  // };
-
   const startGame = () => {
     dispatch({ type: "reset_game" });
-    // Filling all tiles with non-combinable values
-    const tiles = [
-      { position: [0, 0], value: 4 }, { position: [0, 1], value: 2 }, { position: [0, 2], value: 4 },
-      { position: [1, 0], value: 4 }, { position: [1, 1], value: 8 }, { position: [1, 2], value: 4 }, { position: [1, 3], value: 8 },
-      { position: [2, 0], value: 2 }, { position: [2, 1], value: 4 }, { position: [2, 2], value: 2 }, { position: [2, 3], value: 4 },
-      { position: [3, 0], value: 4 }, { position: [3, 1], value: 8 }, { position: [3, 2], value: 4 }, { position: [3, 3], value: 8 },
-    ];
-
-    // Dispatching actions to create all tiles
-    tiles.forEach(tile => dispatch({ type: "create_tile", tile }));
+    dispatch({ type: "create_tile", tile: { position: [0, 1], value: 2 } });
+    dispatch({ type: "create_tile", tile: { position: [0, 2], value: 2 } });
   };
 
   const checkGameState = () => {
