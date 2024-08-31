@@ -17,7 +17,7 @@ If you're interested in mastering React by building this game step-by-step, chec
 
 - Fully-functional 2048 clone
 - Animations
-- Supports **keyboard**, **mouse** and **touch** events
+- Supports **keyboard** and **touch** events
 
 ## Development
 
