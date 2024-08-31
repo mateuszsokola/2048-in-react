@@ -6,7 +6,11 @@ import {
   useReducer,
 } from "react";
 import { isNil, throttle } from "lodash";
-import { gameWinTileValue, mergeAnimationDuration, tileCountPerDimension } from "@/constants";
+import {
+  gameWinTileValue,
+  mergeAnimationDuration,
+  tileCountPerDimension,
+} from "@/constants";
 import { Tile } from "@/models/tile";
 import gameReducer, { initialState } from "@/reducers/game-reducer";
 
@@ -14,7 +18,7 @@ type MoveDirection = "move_up" | "move_down" | "move_left" | "move_right";
 
 export const GameContext = createContext({
   score: 0,
-  status: 'ongoing',
+  status: "ongoing",
   moveTiles: (_: MoveDirection) => {},
   getTiles: () => [] as Tile[],
   startGame: () => {},
@@ -62,18 +66,20 @@ export default function GameProvider({ children }: PropsWithChildren) {
   );
 
   const startGame = () => {
-    dispatch({ type: 'reset_game' });
-    dispatch({ type: "create_tile", tile: { position: [0, 1], value: 1024 } });
-    dispatch({ type: "create_tile", tile: { position: [0, 2], value: 1024 } });
+    dispatch({ type: "reset_game" });
+    dispatch({ type: "create_tile", tile: { position: [0, 1], value: 2 } });
+    dispatch({ type: "create_tile", tile: { position: [0, 2], value: 2 } });
   };
 
   const checkGameState = () => {
-    const isWon = Object.values(gameState.tiles).filter(t => t.value === gameWinTileValue).length > 0
+    const isWon =
+      Object.values(gameState.tiles).filter((t) => t.value === gameWinTileValue)
+        .length > 0;
 
     if (isWon) {
-      dispatch({ type: 'update_status', status: "won" });
+      dispatch({ type: "update_status", status: "won" });
     }
-  }
+  };
 
   useEffect(() => {
     if (gameState.hasChanged) {

@@ -3,7 +3,7 @@ import { uid } from "uid";
 import { tileCountPerDimension } from "@/constants";
 import { Tile, TileMap } from "@/models/tile";
 
-type GameStatus = 'ongoing' | 'won';
+type GameStatus = "ongoing" | "won";
 
 type State = {
   board: string[][];
@@ -21,7 +21,7 @@ type Action =
   | { type: "move_left" }
   | { type: "move_right" }
   | { type: "reset_game" }
-  | { type: "update_status", status: GameStatus };
+  | { type: "update_status"; status: GameStatus };
 
 function createBoard() {
   const board: string[][] = [];
@@ -39,7 +39,7 @@ export const initialState: State = {
   tilesByIds: [],
   hasChanged: false,
   score: 0,
-  status: 'ongoing',
+  status: "ongoing",
 };
 
 export default function gameReducer(
