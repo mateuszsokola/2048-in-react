@@ -94,17 +94,11 @@ export default function GameProvider({ children }: PropsWithChildren) {
           return;
         }
 
-        if (
-          x < maxIndex &&
-          tiles[board[x][y]].value === tiles[board[x + 1][y]].value
-        ) {
+        if (tiles[board[x][y]].value === tiles[board[x + 1][y]].value) {
           return;
         }
 
-        if (
-          y < maxIndex &&
-          tiles[board[x][y]].value === tiles[board[x][y + 1]].value
-        ) {
+        if (tiles[board[x][y]].value === tiles[board[x][y + 1]].value) {
           return;
         }
       }
