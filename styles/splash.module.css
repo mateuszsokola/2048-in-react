@@ -10,7 +10,7 @@
   right: 0;
   bottom: 0;
   border-radius: calc(var(--pixel-size) * 0.75);
-  background: rgba(238, 228, 218, 0.6);
+  background: rgba(181, 157, 135, 0.6);
 }
 
 .win {
@@ -26,13 +26,18 @@
   margin: calc(var(--pixel-size) * 3) auto;
 }
 
+.splash > div > h1 {
+  color: rgba(240, 240, 240, 1);
+}
+
 .button {
   background: var(--button-background);
-  border: calc(var(--pixel-size) * 0.5) solid var(--button-background);
+  border: calc(var(--pixel-size) * 0.125) solid var(--primary-background);
   border-radius: calc(var(--pixel-size) * 0.5);
   font-size: calc(var(--pixel-size) * 2);
   line-height: calc(var(--pixel-size) * 4);
+  padding: calc(var(--pixel-size) * 0.5) calc(var(--pixel-size) * 2);
   font-weight: bold;
-  color: var(--tile-text-color);
+  color: white;
   cursor: pointer;
 }

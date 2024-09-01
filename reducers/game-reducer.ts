@@ -3,7 +3,7 @@ import { uid } from "uid";
 import { tileCountPerDimension } from "@/constants";
 import { Tile, TileMap } from "@/models/tile";
 
-type GameStatus = "ongoing" | "won";
+type GameStatus = "ongoing" | "won" | "lost";
 
 type State = {
   board: string[][];
