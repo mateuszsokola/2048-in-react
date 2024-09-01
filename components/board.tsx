@@ -4,9 +4,10 @@ import styles from "@/styles/board.module.css";
 import Tile from "./tile";
 import { GameContext } from "@/context/game-context";
 import MobileSwiper, { SwipeInput } from "./mobile-swiper";
+import Splash from "./splash";
 
 export default function Board() {
-  const { getTiles, moveTiles, startGame } = useContext(GameContext);
+  const { getTiles, moveTiles, startGame, status } = useContext(GameContext);
   const initialized = useRef(false);
 
   const handleKeyDown = useCallback(
@@ -86,6 +87,7 @@ export default function Board() {
   return (
     <MobileSwiper onSwipe={handleSwipe}>
       <div className={styles.board}>
+        {status === "won" && <Splash heading="You won!" />}
         <div className={styles.tiles}>{renderTiles()}</div>
         <div className={styles.grid}>{renderGrid()}</div>
       </div>
