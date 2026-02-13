@@ -1,0 +1,120 @@
+.galleryButton {
+  padding: 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid #ddd;
+  background-color: var(--button-background);
+  width: 100%;
+}
+
+.galleryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.galleryButton:active {
+  transform: translateY(0);
+}
+
+.modalContent {
+  max-width: 600px;
+  padding: 24px;
+  position: relative;
+  min-width: 350px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modalTitle {
+  text-align: center;
+  color: #fff;
+  margin: 0 0 24px 0;
+  font-size: 1.5rem;
+}
+
+.carouselContainer {
+  position: relative;
+  padding: 0 50px;
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.emblaContainer {
+  display: flex;
+}
+
+.emblaSlide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.tileImage {
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.tileLabel {
+  margin-top: 16px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.navButtonNext {
+  left: auto;
+  right: 8px;
+}

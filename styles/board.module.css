@@ -1,6 +1,7 @@
 .board {
   position: relative;
   width: calc(var(--pixel-size) * 8 * 4 + var(--pixel-size) * 5);
+  z-index: 2;
 }
 
 .grid {

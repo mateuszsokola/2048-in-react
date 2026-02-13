@@ -9,6 +9,7 @@ import {
 import { Tile as TileProps } from "@/models/tile";
 import styles from "@/styles/tile.module.css";
 import usePreviousProps from "@/hooks/use-previous-props";
+import {getTileImage} from "@/utils/getTileImage";
 
 export default function Tile({ position, value }: TileProps) {
   const isWideScreen = useMediaQuery({ minWidth: 512 });
@@ -35,11 +36,17 @@ export default function Tile({ position, value }: TileProps) {
     top: positionToPixels(position[1]),
     transform: `scale(${scale})`,
     zIndex: value,
+    backgroundImage: `url(${getTileImage(value).src})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
   };
 
   return (
-    <div className={`${styles.tile} ${styles[`tile${value}`]}`} style={style}>
-      {value}
+    <div
+      className={`${styles.tile} ${styles[`tile${value}`]}`} style={style}
+    >
+      <span>{value}</span>
     </div>
   );
 }

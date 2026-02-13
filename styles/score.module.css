@@ -12,7 +12,7 @@
 
 .score > div {
   font-size: calc(var(--pixel-size) * 2.5);
-  color: var(--secondary-text-color);
+  color: var(--primary-text-color);
 }
 
 @media (min-width: 512px) {

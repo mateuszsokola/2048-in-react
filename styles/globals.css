@@ -2,15 +2,15 @@
   --pixel-size: 8px;
 
   /* Backgrounds */
-  --primary-background: #faf8ef;
-  --secondary-background: #b59d87;
-  --cell-background: #cebda6;
+  --primary-background: #E6B2C6;
+  --secondary-background: #D77FA1;
+  --cell-background: #D6E5FA;
   --tile-background: #eee4da;
-  --button-background: #8f7a66;
+  --button-background: #DDAED3;
 
   /* Colors */
-  --primary-text-color: #776e65;
-  --secondary-text-color: #f9f6f2;
+  --primary-text-color: #f9f6f2;
+  --secondary-text-color: #FFF57E;
 }
 
 body {
