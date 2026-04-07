@@ -37,7 +37,7 @@ Want to learn how to build this game from scratch using React & Next.js? I've go
 
 Whether you're a beginner looking to enhance your skills or an experienced developer seeking a fun project, this course will take you through the core concepts of React while building a fully functional game.
 
-[![Build 2048 Game in React](https://assets.mateu.sh/assets/github-2048-in-react-readme)](https://assets.mateu.sh/r/github-2048-in-react-readme)
+[Build 2048 Game in React](https://www.udemy.com/course/2048-in-react-and-nextjs/?referralCode=AC3FD6336BAB9C402106)
 
 ## Support
 
