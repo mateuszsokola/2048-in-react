@@ -35,7 +35,7 @@ export default function Home() {
         <p>
           Join my{" "}
           <a
-            href="https://assets.mateu.sh/r/github-2048-in-react-readme"
+            href="https://www.udemy.com/course/2048-in-react-and-nextjs/?referralCode=AC3FD6336BAB9C402106"
             target="_blank"
             rel="noopener"
           >
@@ -47,7 +47,7 @@ export default function Home() {
       <footer>
         <div className={styles.socials}>
           <a
-            href="https://www.udemy.com/course/2048-in-react-and-nextjs/?referralCode=AC3FD6336BAB9C402106"
+            href="https://github.com/mateuszsokola/2048-in-react"
             target="_blank"
             rel="noopener"
           >
