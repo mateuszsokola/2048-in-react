@@ -47,7 +47,7 @@ export default function Home() {
       <footer>
         <div className={styles.socials}>
           <a
-            href="https://github.com/mateuszsokola/2048-in-react"
+            href="https://www.udemy.com/course/2048-in-react-and-nextjs/?referralCode=AC3FD6336BAB9C402106"
             target="_blank"
             rel="noopener"
           >
