@@ -5,7 +5,7 @@ import { Tile, TileMap } from "@/models/tile";
 
 type GameStatus = "ongoing" | "won" | "lost";
 
-type State = {
+export type State = {
   board: string[][];
   tiles: TileMap;
   tilesByIds: string[];
@@ -13,7 +13,7 @@ type State = {
   score: number;
   status: GameStatus;
 };
-type Action =
+export type Action =
   | { type: "create_tile"; tile: Tile }
   | { type: "clean_up" }
   | { type: "move_up" }

@@ -12,7 +12,7 @@ import {
   tileCountPerDimension,
 } from "@/constants";
 import { Tile } from "@/models/tile";
-import gameReducer, { initialState } from "@/reducers/game-reducer";
+import gameReducer, { initialState, State, Action } from "@/reducers/game-reducer";
 
 type MoveDirection = "move_up" | "move_down" | "move_left" | "move_right";
 
@@ -25,7 +25,10 @@ export const GameContext = createContext({
 });
 
 export default function GameProvider({ children }: PropsWithChildren) {
-  const [gameState, dispatch] = useReducer(gameReducer, initialState);
+  const [gameState, dispatch] = useReducer(
+    (state: State, action: Action) => gameReducer(state, action),
+    initialState,
+  );
 
   const getEmptyCells = () => {
     const results: [number, number][] = [];
