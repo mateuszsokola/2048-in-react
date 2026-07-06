@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useReducer,
+  useRef,
 } from "react";
 import { isNil, throttle } from "lodash";
 import {
@@ -56,12 +57,25 @@ export default function GameProvider({ children }: PropsWithChildren) {
   };
 
   const getTiles = () => {
-    return gameState.tilesByIds.map((tileId) => gameState.tiles[tileId]);
+    return gameState.tilesByIds
+      .map((tileId) => gameState.tiles[tileId])
+      .filter((tile) => !isNil(tile));
   };
+
+  const isBoardSettled = gameState.tilesByIds.every(
+    (tileId) => !isNil(gameState.tiles[tileId]),
+  );
+  const isBoardSettledRef = useRef(isBoardSettled);
+  isBoardSettledRef.current = isBoardSettled;
 
   const moveTiles = useCallback(
     throttle(
-      (type: MoveDirection) => dispatch({ type }),
+      (type: MoveDirection) => {
+        if (!isBoardSettledRef.current) {
+          return;
+        }
+        dispatch({ type });
+      },
       mergeAnimationDuration * 1.05,
       { trailing: false },
     ),

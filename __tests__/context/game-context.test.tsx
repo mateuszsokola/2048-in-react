@@ -4,6 +4,33 @@ import Board from "@/components/board";
 import Score from "@/components/score";
 
 describe("GameProvider", () => {
+  describe("dangling tile references", () => {
+    it("does not crash when moving again while a merged tile is animating out", () => {
+      jest.useFakeTimers();
+      jest.setSystemTime(0);
+
+      try {
+        const { container } = render(
+          <GameProvider>
+            <Board />
+          </GameProvider>,
+        );
+
+        fireEvent.keyDown(container, { key: "ArrowUp", code: "ArrowUp" });
+        expect(container.querySelectorAll(".tile4")).toHaveLength(1);
+
+        jest.setSystemTime(1000);
+        expect(() => {
+          fireEvent.keyDown(container, { key: "ArrowDown", code: "ArrowDown" });
+        }).not.toThrow();
+
+        expect(container.querySelectorAll(".tile").length).toBeGreaterThan(0);
+      } finally {
+        jest.useRealTimers();
+      }
+    });
+  });
+
   describe("startGame", () => {
     it("should start the game with two tiles", () => {
       const { container } = render(
