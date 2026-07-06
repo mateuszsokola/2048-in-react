@@ -87,22 +87,27 @@ export default function GameProvider({ children }: PropsWithChildren) {
     const { tiles, board } = gameState;
 
     const maxIndex = tileCountPerDimension - 1;
-    for (let x = 0; x < maxIndex; x += 1) {
-      for (let y = 0; y < maxIndex; y += 1) {
-        if (
-          isNil(gameState.board[x][y]) ||
-          isNil(gameState.board[x + 1][y]) ||
-          isNil(gameState.board[x][y + 1])
-        ) {
+    for (let x = 0; x <= maxIndex; x += 1) {
+      for (let y = 0; y <= maxIndex; y += 1) {
+        // An empty cell means a move is still possible.
+        if (isNil(board[x][y])) {
           return;
         }
 
-        if (tiles[board[x][y]].value === tiles[board[x + 1][y]].value) {
-          return;
+        // An empty right neighbour is a move; an equal one can be merged.
+        if (x < maxIndex) {
+          const right = board[x + 1][y];
+          if (isNil(right) || tiles[board[x][y]].value === tiles[right].value) {
+            return;
+          }
         }
 
-        if (tiles[board[x][y]].value === tiles[board[x][y + 1]].value) {
-          return;
+        // An empty bottom neighbour is a move; an equal one can be merged.
+        if (y < maxIndex) {
+          const bottom = board[x][y + 1];
+          if (isNil(bottom) || tiles[board[x][y]].value === tiles[bottom].value) {
+            return;
+          }
         }
       }
     }
