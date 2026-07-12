@@ -44,23 +44,23 @@ _Easily set up a local development environment!_
 Configuration lives in `.env.local` (copied from `.env.example`). Variables
 prefixed with `NEXT_PUBLIC_` are inlined into the published bundle:
 
-| Variable | Description |
-| --- | --- |
+| Variable               | Description                                               |
+| ---------------------- | --------------------------------------------------------- |
 | `NEXT_PUBLIC_GAME_URL` | The shareable "play" link used by the Web Share fallback. |
 
 ### Scripts
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the development server. |
-| `npm run build` | Build the static export into `out/`. |
-| `npm start` | Serve the production build. |
-| `npm run lint` | Run ESLint. |
-| `npm run format` | Format the codebase with Prettier. |
-| `npm run check-code` | Check formatting without writing changes. |
-| `npm test` | Run the test suite in watch mode. |
-| `npm run test-coverage` | Run tests once with a coverage report. |
-| `npm run bundle` | Build and zip the game into `instant-game.zip` for Facebook Instant Games. |
+| Command                 | Description                                                                |
+| ----------------------- | -------------------------------------------------------------------------- |
+| `npm run dev`           | Start the development server.                                              |
+| `npm run build`         | Build the static export into `out/`.                                       |
+| `npm start`             | Serve the production build.                                                |
+| `npm run lint`          | Run ESLint.                                                                |
+| `npm run format`        | Format the codebase with Prettier.                                         |
+| `npm run check-code`    | Check formatting without writing changes.                                  |
+| `npm test`              | Run the test suite in watch mode.                                          |
+| `npm run test-coverage` | Run tests once with a coverage report.                                     |
+| `npm run bundle`        | Build and zip the game into `instant-game.zip` for Facebook Instant Games. |
 
 ## Build your own 2048 Game! 🚀
 

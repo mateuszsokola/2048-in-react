@@ -13,7 +13,11 @@ import {
   tileCountPerDimension,
 } from "@/constants";
 import { Tile } from "@/models/tile";
-import gameReducer, { initialState, State, Action } from "@/reducers/game-reducer";
+import gameReducer, {
+  initialState,
+  State,
+  Action,
+} from "@/reducers/game-reducer";
 
 type MoveDirection = "move_up" | "move_down" | "move_left" | "move_right";
 
@@ -119,7 +123,10 @@ export default function GameProvider({ children }: PropsWithChildren) {
         // An empty bottom neighbour is a move; an equal one can be merged.
         if (y < maxIndex) {
           const bottom = board[x][y + 1];
-          if (isNil(bottom) || tiles[board[x][y]].value === tiles[bottom].value) {
+          if (
+            isNil(bottom) ||
+            tiles[board[x][y]].value === tiles[bottom].value
+          ) {
             return;
           }
         }

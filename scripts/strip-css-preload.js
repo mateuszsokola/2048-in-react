@@ -16,7 +16,8 @@ const path = require("path");
 
 const OUT_DIR = path.join(__dirname, "..", "out");
 // Matches a self-closing <link rel="preload" ... as="style" ...> in any attribute order.
-const CSS_PRELOAD = /<link\b(?=[^>]*\brel="preload")(?=[^>]*\bas="style")[^>]*\/?>/g;
+const CSS_PRELOAD =
+  /<link\b(?=[^>]*\brel="preload")(?=[^>]*\bas="style")[^>]*\/?>/g;
 
 function walk(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -31,7 +32,10 @@ function walk(dir) {
         const removed = (html.match(CSS_PRELOAD) || []).length;
         fs.writeFileSync(full, stripped);
         console.log(
-          `strip-css-preload: removed ${removed} CSS preload link(s) from ${path.relative(OUT_DIR, full)}`,
+          `strip-css-preload: removed ${removed} CSS preload link(s) from ${path.relative(
+            OUT_DIR,
+            full,
+          )}`,
         );
       }
     }
@@ -39,7 +43,9 @@ function walk(dir) {
 }
 
 if (!fs.existsSync(OUT_DIR)) {
-  console.error(`strip-css-preload: ${OUT_DIR} not found — run "next build" first.`);
+  console.error(
+    `strip-css-preload: ${OUT_DIR} not found — run "next build" first.`,
+  );
   process.exit(1);
 }
 
