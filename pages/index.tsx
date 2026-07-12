@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Board from "@/components/board";
 import Score from "@/components/score";
 import styles from "@/styles/index.module.css";
@@ -29,6 +30,23 @@ export default function Home() {
       <main>
         <Board />
       </main>
+      <footer>
+        <div className={styles.socials}>
+          <a
+            href="https://github.com/mateuszsokola/2048-in-react"
+            target="_blank"
+            rel="noopener"
+          >
+            <Image
+              src="social-github.svg"
+              alt="2048-in-react on GitHub"
+              width={32}
+              height={32}
+            />
+          </a>
+        </div>
+        <div>Made with ❤️ by Matt</div>
+      </footer>
     </div>
   );
 }
