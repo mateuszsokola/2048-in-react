@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Board from "@/components/board";
 import Score from "@/components/score";
-import ShareTestButton from "@/components/share-test-button";
 import styles from "@/styles/index.module.css";
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
       </header>
       <main>
         <Board />
-        <ShareTestButton />
       </main>
     </div>
   );
