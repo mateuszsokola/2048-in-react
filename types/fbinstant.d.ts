@@ -1,7 +1,15 @@
+export interface FBInstantSharePayload {
+  intent: "INVITE" | "REQUEST" | "CHALLENGE" | "SHARE";
+  image: string;
+  text: string;
+  data?: Record<string, unknown>;
+}
+
 export interface FBInstantSDK {
   initializeAsync(): Promise<void>;
   setLoadingProgress(percentage: number): void;
   startGameAsync(): Promise<void>;
+  shareAsync(payload: FBInstantSharePayload): Promise<void>;
 }
 
 declare global {
