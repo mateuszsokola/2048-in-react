@@ -16,20 +16,51 @@ If you're interested in mastering React by building this game step-by-step, chec
 ## Features
 
 - Fully-functional 2048 clone
-- Animations
-- Supports **keyboard** and **touch** events
+- Smooth tile animations
+- Supports **keyboard** and **touch** (swipe) events
+- Win and game-over detection with a splash screen
+- Share your score on game over via the **Web Share API**, with a **Facebook Instant Games** fallback
+- Static export ready for deployment to GitHub Pages or Facebook Instant Games
+
+## Tech stack
+
+- [React 19](https://react.dev/) & [Next.js 15](https://nextjs.org/) (static export)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/) for tests
 
 ## Development
 
 _Easily set up a local development environment!_
 
-Just start dev server on [localhost](http://localhost:3000):
-
-- clone
+- clone the repo
 - `npm install`
-- `npm run dev`
+- copy the environment template: `cp .env.example .env.local` (then fill in the values)
+- `npm run dev` and open [localhost:3000](http://localhost:3000)
 
 **Start coding!** 🎉
+
+### Environment variables
+
+Configuration lives in `.env.local` (copied from `.env.example`). Variables
+prefixed with `NEXT_PUBLIC_` are inlined into the published bundle:
+
+| Variable | Description |
+| --- | --- |
+| `NEXT_PUBLIC_GAME_URL` | The shareable "play" link used by the Web Share fallback. |
+
+### Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server. |
+| `npm run build` | Build the static export into `out/`. |
+| `npm start` | Serve the production build. |
+| `npm run lint` | Run ESLint. |
+| `npm run format` | Format the codebase with Prettier. |
+| `npm run check-code` | Check formatting without writing changes. |
+| `npm test` | Run the test suite in watch mode. |
+| `npm run test-coverage` | Run tests once with a coverage report. |
+| `npm run bundle` | Build and zip the game into `instant-game.zip` for Facebook Instant Games. |
 
 ## Build your own 2048 Game! 🚀
 
@@ -44,7 +75,7 @@ Whether you're a beginner looking to enhance your skills or an experienced devel
 If you encounter any issues or have suggestions, feel free to open an issue. Your feedback is always appreciated!
 
 [lint-badge]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/lint.yml/badge.svg
-[lint-url]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/actions/workflows/lint.yml
+[lint-url]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/lint.yml
 [test-badge]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/mateuszsokola/2048-in-react/actions/workflows/test.yml
 [issues-badge]: https://img.shields.io/github/issues/mateuszsokola/2048-in-react
